@@ -1,0 +1,27 @@
+name: Semantic PRs
+on:
+  pull_request_target:
+    types:
+      - edited
+      - opened
+      - reopened
+      - synchronize
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.number }}
+  cancel-in-progress: true
+jobs:
+  validate_title:
+    name: Validate Title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Title
+        uses: amannn/action-semantic-pull-request@v5.5.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title-only: true
+          regexp: '^\\d{2}-\\d{2}-\\d{4}\\((ac|wa|cs|tle)\\): [a-zA-Z0-9_-]+$'
+          error-message: |
+            Invalid PR title format. 
+            Please follow the format: `dd-mm-yyyy(status): username`.
+            Example: `04-01-2025(ac): adembc`.
