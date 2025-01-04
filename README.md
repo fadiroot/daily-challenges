@@ -24,10 +24,10 @@ Welcome to the Daily Coding Challenges repository! This repository is created to
          - `04-01-2025(ac): adembc` (Accepted solution)
 
    - **Status Codes**:
-      - **AC**: Accepted (solution is correct).
-      - **WA**: Wrong Answer (solution doesn’t produce the expected output).
-      - **TLE**: Time Limit Exceeded (solution takes too long to execute).
-      - **CS**: Can't Solve (unable to solve the challenge).
+      - **ac**: Accepted (solution is correct).
+      - **wa**: Wrong Answer (solution doesn’t produce the expected output).
+      - **tle**: Time Limit Exceeded (solution takes too long to execute).
+      - **cs**: Can't Solve (unable to solve the challenge).
 
 
 
