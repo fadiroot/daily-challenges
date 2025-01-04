@@ -9,6 +9,8 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.number }}
   cancel-in-progress: true
+permissions:
+  pull-requests: write
 jobs:
   validate_title:
     name: Validate Title
@@ -19,9 +21,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title-only: true
-          regexp: '^\\d{2}-\\d{2}-\\d{4}\\((ac|wa|cs|tle)\\): [a-zA-Z0-9_-]+$'
-          error-message: |
-            Invalid PR title format. 
-            Please follow the format: `dd-mm-yyyy(status): username`.
-            Example: `04-01-2025(ac): adembc`.
+          types: |
+            ac
+            wa
+            tle
+            cs
+          scopes: |
+            [a-zA-Z0-9_-]{1,39}
+          requireScope: true
+          subjectPattern: '^\d{2}-\d{2}-\d{4}$'
+          subjectPatternError: |
+            The date in the PR title must follow the format dd-mm-yyyy (e.g., 04-01-2025).

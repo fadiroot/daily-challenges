@@ -18,10 +18,10 @@ Welcome to the Daily Coding Challenges repository! This repository is created to
    - Open a pull request with your solution to the `main` branch.
    - Use the following format for your PR title:
      ```
-     dd-mm-yyyy(status): username
+     status(username): dd-mm-yyyy
      ```
       - **Example PR Titles**:
-         - `04-01-2025(ac): adembc` (Accepted solution)
+         - `ac(adembc): 04-01-2025` (Accepted solution)
 
    - **Status Codes**:
       - **ac**: Accepted (solution is correct).
